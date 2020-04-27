@@ -42,12 +42,25 @@ class Header extends React.Component {
         Search: ''
         }
         this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+
     }
 
     handleChange(event) {
      const {name, value} = event.target
      this.setState({
          [name]: value
+     })
+    }
+
+    handleSubmit(e) {
+     e.preventDefault();
+
+     const post = {
+         Search: this.state.Search
+     }
+     fetch('https://jsonplaceholder.com/posts', {
+         method: 'POST'
      })
     }
     render() {
@@ -62,7 +75,7 @@ class Header extends React.Component {
                     <Li>Market Place</Li>
                     <Li>Pricing</Li>
                 </ul>
-                  <Div>
+                  <Div onSubmit={this.handleSubmit}>
                     <Input placeholder='Search Github'
                      name='Search'
                      onChange={this.handleChange}
