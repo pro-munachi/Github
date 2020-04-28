@@ -4,31 +4,32 @@ import styled from 'styled-components'
 const Wrapper = styled.div `
 display: flex;
 justify-content: space-evenly;
-background: #282c34;
+background: #282c24;
 height: 100vh;
 `
 
 const Div = styled.div `
-width: 30%;
+width: 21%;
 color: white;
 margin-top: 10%;
 margin-left: 12em;
 `
 const Div1 = styled.div `
-width: 30%;
+width: 20%;
 background: white;
 padding-top: 60px;
 padding-bottom: 3em;
 padding-left: 60px;
 padding-right: 60px;
-margin: 5em;
+margin-top: 5em;
+margin-bottom: 6em;
+margin-right: 12em;
 `
 const Input = styled.input `
 padding: 10px;
 width: 100%;
 margin: 8px 0;
 box-sizing: border-box;
-box-shadow: 3px 5px #888888;
 `
 const P = styled.p `
 font-size: 13px;
@@ -48,7 +49,21 @@ class Body extends React.Component {
         email: '',
         password: ''
         }
+        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
+
+     handleChange(e) {
+      const {name, value} = e.target
+      this.setState({
+          [name]: value
+      })
+     }
+
+     handleSubmit(e) {
+
+     }
+
     render() {
         return (
         
@@ -62,7 +77,7 @@ class Body extends React.Component {
                   </p>
                 </Div>
                 <Div1>
-                  <form>
+                  <form onSubmit={this.handleSubmit}>
                       <label> <strong>Username</strong> <br />
                       <Input name='username'
                        value={this.state.username}
