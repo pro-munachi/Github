@@ -34,6 +34,9 @@ margin: 1em;
 padding: 10px;
 
 `
+const Ul = styled.ul `
+margin-right: 12em;
+`
 
 class Header extends React.Component {
     constructor(props) {
@@ -42,7 +45,7 @@ class Header extends React.Component {
         Search: ''
         }
         this.handleChange = this.handleChange.bind(this)
-        this.handleSubmit = this.handleSubmit.bind(this)
+        
 
     }
 
@@ -53,29 +56,20 @@ class Header extends React.Component {
      })
     }
 
-    handleSubmit(e) {
-     e.preventDefault();
-
-     const post = {
-         Search: this.state.Search
-     }
-     fetch('https://jsonplaceholder.com/posts', {
-         method: 'POST'
-     })
-    }
+   
     render() {
     return (
         <div>           
             <Navbar>
             <Logo src='/Asset/Img/logos.png' alt=''/>
-                <ul>                                    
+                <Ul>                                    
                     <Li>Features</Li>
                     <Li>Business</Li>
                     <Li>Explore</Li>
                     <Li>Market Place</Li>
                     <Li>Pricing</Li>
-                </ul>
-                  <Div onSubmit={this.handleSubmit}>
+                </Ul>
+                  <Div>
                     <Input placeholder='Search Github'
                      name='Search'
                      onChange={this.handleChange}
@@ -87,7 +81,7 @@ class Header extends React.Component {
                   </Div>
                 
             </Navbar>
-    <h1>{this.state.Search}</h1>
+    
             
         </div>
     )
