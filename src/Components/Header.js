@@ -6,7 +6,7 @@ height: 4em;
 display: flex;
 justify-content: space-evenly;
 align-items: center;
-background: #282c34;
+background: #080808;
 color: white;
 position: relative;
 `
@@ -19,6 +19,7 @@ const Div = styled.div `
 margin-left: 12em;
 display: flex;
 justify-content: space-between;
+align-items: center;
 `
 const Logo = styled.img `
 height: 6vmin ;
@@ -26,7 +27,7 @@ pointer-events: none;
 border-radius: 5em;
 `
 const Button = styled.div `
-background: #282c34;
+background: #080808;
 margin: 1em;
 `
 const Input = styled.input `

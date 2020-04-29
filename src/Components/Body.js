@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const Wrapper = styled.div `
 display: flex;
 justify-content: space-evenly;
-background: #282c24;
+background: #202020;
 height: 100vh;
 `
 
@@ -61,7 +61,24 @@ class Body extends React.Component {
      }
 
      handleSubmit(e) {
-
+     e.preventDefault();
+      
+      const user = {
+      username: this.state.username,
+      email: this.state.email,
+      password: this.state.password
+      }
+      fetch('https://jsonplaceholder.typicode.com/users', {
+          method: 'POST',
+          headers: {
+              'content-type': 'application/json'
+          },
+          username: JSON.stringify(user),
+          email: JSON.stringify(user),
+          password: JSON.stringify(user)
+      })
+          .then(res => res.json())
+          .then(data => console.log(data))
      }
 
     render() {
